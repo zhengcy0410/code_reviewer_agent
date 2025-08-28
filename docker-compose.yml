@@ -1,0 +1,36 @@
+# Docker Compose配置文件
+
+services:
+  # 代码分析AI Agent应用（包含MySQL）
+  app:
+    build: .
+    container_name: code_reviewer_app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+      - "3306:3306"
+    environment:
+      # 数据库配置
+      MYSQL_HOST: localhost
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: code-reviewer
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 19900410
+      
+      # 应用配置
+      SERVER_HOST: 0.0.0.0
+      SERVER_PORT: 8000
+      DEBUG: "false"
+      
+      # 防止生成.pyc文件
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONOPTIMIZE: 2
+    volumes:
+      - ./uploads:/app/uploads
+      - ./data:/app/data
+      - mysql_data:/var/lib/mysql
+
+
+volumes:
+  mysql_data:
+    driver: local
