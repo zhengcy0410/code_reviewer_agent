@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     # AI 模型配置
     DASHSCOPE_API_KEY: str = ""
     OPENAI_API_KEY: str = ""
-    QWEN_API_KEY: str = ""  # 用户稍后配置Qwen API Key
+    
     
     # 模型选择配置
     LLM_PROVIDER: str = "openai"  # "qwen" 或 "openai"
