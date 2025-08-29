@@ -20,6 +20,7 @@
 ## 快速开始
 
 镜像构建：docker build -t code-reviewer-agent .
+
 app/core/config里可以配置OPENAI_API_KEY和DASHSCOPE_API_KEY，默认使用openai模型
 
 ## 项目结构
